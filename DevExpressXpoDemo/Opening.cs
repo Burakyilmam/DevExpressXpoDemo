@@ -15,5 +15,24 @@ namespace DevExpressXpoDemo
         {
             InitializeComponent();
         }
+
+        private void userBtn_Click(object sender, EventArgs e)
+        {
+            userLogin user = new userLogin();
+            user.Show();
+            this.Hide();
+        }
+
+        private void adminBtn_Click(object sender, EventArgs e)
+        {
+            adminLogin admin = new adminLogin();
+            admin.Show();
+            this.Hide();
+        }
+
+        private void Opening_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
