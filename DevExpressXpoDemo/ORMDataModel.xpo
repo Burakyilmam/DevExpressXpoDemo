@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataBaseObjectModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="bb27868a-0e8b-4996-a3cd-2859353e9681" namespace="DevExpressXpoDemo.Xdb" dataBaseShemaInfo="H4sIAAAAAAAEAN1X227bOBB9X2D/wfBzaFG8SGQhq0jtbhHsbhE0TdHXITlMhJWlQJTs7N8vfYkbu+m2RYME7ZvnzCE4hzM+pIqXt4t6tMQuVG0zHacTOn5Z/v5b8QoCXvRtB1d41vh2FFlNeHEb3HR83fc3L5JktVpNVnzSdlcJozRNPv7914W9xgWM9+Tq62RSNaGHxuI47joaFe/B1BjWW27iO+QecAe9hQWWlwG7IvkU7ymvmzVW9t2ARbIL9sl5FdbA5Y2DHksPdYikQ3DPfTNU7syVSts8g0wTqZUigmaGgEdHjFVpTvMsRZUWyY68Xzxr62HRhIPqvwjHxFrDNlmeuSK5Fx7Q/k/c9wq8LzJXMtM+BSJy5ojIuCIAJidCUqecdE6k7jORcXnyAzrXHWxi+PRqZaoy5bwmNOeMCAROlBSeOCWN45BRTc1jqz2HEFZt9wy9zZRMIdWM5J5yIlyeEU2pI55qkWd5xhiXj632ood+CE+vFZmOTdRAJHdxmA1SYjznhKbAGLMSjM2+WetD6M5yvtmmTt2iap7Ep4x0jGlmCUSZROg0WpQyihgQ1Msst2jxp/cpY703VnvCvbXRrCwS0DLasjHO5taZDB7dpzYtfB6jspoJwSHKVZhGW3bx7qHOEYnGmRy1FTr/dYwKHEdLeUooj5esUMqSqF8Sq1NvgVur8l/GqFIOCli0Jx2fEUQIb4j2UhIns2hYzCN6/6hGtYs/UYr1Iw/dedfaDThKtvCH7YuwnOPy9e1NhyFM5tDDZMn4hJ2MdunpOpqICT0ZzYa6HzqcNjj0HdQno/PB1JX9E/993/6DzdQo5dJcxouHUhQaiuRui81+szoOHIZ1A94N+9MtTl0sDX11u6trC10M/gB6h4t2icfELXrMncWHbXnZ2GtorjCO9ybeHs1DNRTxZG6w66tnru0LZRRvsMEujtesXSyw6cNuRj+DD8hzDNVV/PlHFUfhaMVhbrNsjjX2eBpCayvoY8vu1jyQ2Cx4O9T1esxe4TUsq7aLU+Qhzkf8gx1n4qdGcvStUf4HlStYnpQMAAA=" generateConnectionHelper="true" generateStoredProcedures="false" fieldNameCase="Unchanged" generateDefaultConstructors="false" useNameOf="true" connectionStringName="DESKTOP-EVJH8OQXdb" createdInVersion="23.2.4.0" generateJsonSerializationContractResolver="false" generateServiceCollectionExtensions="false" lastModifiedInVersion="23.2.4.0" name="Xdb" xmlns="http://schemas.microsoft.com/dsltools/ORMDataModel">
+  <classes>
+    <dataBaseObjectModelHasClasses Id="945ad521-40f8-42bf-ab67-a189c7a9a194">
+      <xpObject Id="89c76a69-5988-406b-afed-bc8170761e81" name="User" baseClass="XPLiteObject" userFileName="User" designerFileName="User.Designer" className="User" virtualBaseClass="XPLiteObject" virtualName="User">
+        <fields>
+          <generalXpObjectHasFields Id="89fe3c0f-0b9c-4e6b-aa48-f54555c6a3a1">
+            <field Id="78569f1a-472d-4638-aab7-450d8d5dd41d" name="Id" columnType="Int32" key="true" isIdentity="true" virtualColumnType="Int32" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="a573fabc-db62-4a51-8ae8-0cb227b1a926">
+            <field Id="51868df9-0732-4ea3-854f-d85bd3a6090b" name="Username" virtualColumnType="String" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="f4abbacd-b221-4532-b4c7-6c3389e485ea">
+            <field Id="6851a192-7f03-4d76-900d-f09476762235" name="Password" virtualColumnType="String" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="296e7123-2cff-4916-9723-31749cc1dc27">
+            <field Id="e29d859a-53da-4be0-bf33-01a222c5abc6" name="Status" columnType="Boolean" virtualColumnType="Boolean" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+        </fields>
+      </xpObject>
+    </dataBaseObjectModelHasClasses>
+    <dataBaseObjectModelHasClasses Id="44482791-0066-4b3d-aef5-144fd236a146">
+      <xpObject Id="b5d2292c-ac5a-491d-b8b8-ba40f567cece" name="Admin" baseClass="XPLiteObject" userFileName="Admin" designerFileName="Admin.Designer" className="Admin" virtualBaseClass="XPLiteObject" virtualName="Admin">
+        <fields>
+          <generalXpObjectHasFields Id="2030dc68-a2e7-4f59-a834-7c01093e8930">
+            <field Id="bcffbc9f-3fcc-47ce-a958-4bbdc7cdb6ad" name="Id" columnType="Int32" key="true" isIdentity="true" virtualColumnType="Int32" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="53f60b0b-0719-4f6e-86fd-b45da1a6a245">
+            <field Id="c92443af-38e1-46db-a0dd-5ebdb7e9c497" name="Adminname" virtualColumnType="String" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="d85be173-93a7-41f3-b70a-1cd0d0fbc0ee">
+            <field Id="ad3ec031-036b-488c-9245-c91fca3cc875" name="Password" virtualColumnType="String" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="c726f5c4-6a29-4a76-b89b-91943063c394">
+            <field Id="13a8a2e0-9c81-44fb-9f55-d56bf32feeff" name="Status" columnType="Boolean" virtualColumnType="Boolean" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+        </fields>
+      </xpObject>
+    </dataBaseObjectModelHasClasses>
+  </classes>
+</dataBaseObjectModel>

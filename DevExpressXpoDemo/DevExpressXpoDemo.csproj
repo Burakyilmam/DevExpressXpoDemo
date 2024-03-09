@@ -34,13 +34,23 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v23.2" />
     <Reference Include="DevExpress.Data.Desktop.v23.2" />
-    <Reference Include="DevExpress.Data.v23.2" />
+    <Reference Include="DevExpress.Data.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Data.23.2.4\lib\net452\DevExpress.Data.v23.2.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Utils.v23.2" />
     <Reference Include="DevExpress.Sparkline.v23.2.Core" />
+    <Reference Include="DevExpress.Xpo.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Xpo.23.2.4\lib\net452\DevExpress.Xpo.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v23.2" />
     <Reference Include="DevExpress.Printing.v23.2.Core" />
     <Reference Include="DevExpress.Drawing.v23.2" />
+    <Reference Include="DevExpress.XtraGrid.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,11 +68,32 @@
     <Compile Include="adminLogin.Designer.cs">
       <DependentUpon>adminLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="adminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminPage.Designer.cs">
+      <DependentUpon>adminPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="Opening.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Opening.Designer.cs">
       <DependentUpon>Opening.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORMDataModelCode\Admin.cs" />
+    <Compile Include="ORMDataModelCode\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORMDataModelCode\ConnectionHelper.cs" />
+    <Compile Include="ORMDataModelCode\User.cs" />
+    <Compile Include="ORMDataModelCode\User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,12 +103,25 @@
     <Compile Include="userLogin.Designer.cs">
       <DependentUpon>userLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="userPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userPage.Designer.cs">
+      <DependentUpon>userPage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="adminLogin.resx">
       <DependentUpon>adminLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminPage.resx">
+      <DependentUpon>adminPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Opening.resx">
       <DependentUpon>Opening.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -90,7 +134,15 @@
     <EmbeddedResource Include="userLogin.resx">
       <DependentUpon>userLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="userPage.resx">
+      <DependentUpon>userPage.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="ORMDataModel.xpo" />
+    <None Include="ORMDataModel.xpo.diagram">
+      <DependentUpon>ORMDataModel.xpo</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

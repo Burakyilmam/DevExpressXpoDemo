@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.Xpo;
+using DevExpressXpoDemo.Xdb;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +14,57 @@ namespace DevExpressXpoDemo
 {
     public partial class userLogin : Form
     {
+        public UnitOfWork uow { get; set; }
         public userLogin()
         {
             InitializeComponent();
         }
-
+        private void userLogin_Load(object sender, EventArgs e)
+        {
+            Connection();
+            txtPassword.Properties.UseSystemPasswordChar = true;
+        }
         private void userLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             Opening opening = new Opening();
             opening.Show();
             this.Hide();
+        }
+        public void Connection()
+        {
+            Xdb.ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaOnly);
+            uow = new UnitOfWork(XpoDefault.DataLayer);
+        }
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string username = txtUsername.Text;
+                string password = txtPassword.Text;
+                var login = uow.Query<User>().FirstOrDefault(x => x.Username == username && x.Password == password);
+                if (login != null)
+                {
+                    Main main = new Main();
+                    main.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex) { 
+            }
+        }
+
+        private void btnEye_Click(object sender, EventArgs e)
+        {
+            txtPassword.Properties.UseSystemPasswordChar = false;
+            btnEye.Visible = false;
+            btnEyeClose.Visible = true;
+        }
+
+        private void btnEyeClose_Click(object sender, EventArgs e)
+        {
+            txtPassword.Properties.UseSystemPasswordChar = true;
+            btnEye.Visible = true;
+            btnEyeClose.Visible = false;
         }
     }
 }
