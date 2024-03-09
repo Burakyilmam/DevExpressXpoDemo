@@ -30,6 +30,9 @@ namespace DevExpressXpoDemo
         private void AdminInfo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             adminInfo adminInfo = new adminInfo();
+            adminInfo.Id = Id;
+            adminInfo.AdminName = AdminName;
+            adminInfo.Password = Password;
             adminInfo.Show();
         }
 
