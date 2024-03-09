@@ -53,9 +53,14 @@ namespace DevExpressXpoDemo
                     adminPage.Show();
                     this.Hide();
                 }
+                else
+                {
+                    MessageBox.Show("Yönetici adı veya parola hatalı", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Hata : " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

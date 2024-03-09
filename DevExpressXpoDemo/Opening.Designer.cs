@@ -39,7 +39,7 @@
             // 
             this.userBtn.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.userBtn.Appearance.Options.UseBackColor = true;
-            this.userBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.userBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("userBtn.ImageOptions.Image")));
             this.userBtn.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.userBtn.Location = new System.Drawing.Point(29, 3);
             this.userBtn.Name = "userBtn";
@@ -51,7 +51,7 @@
             // 
             this.adminBtn.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.adminBtn.Appearance.Options.UseBackColor = true;
-            this.adminBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.adminBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("adminBtn.ImageOptions.Image")));
             this.adminBtn.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.adminBtn.Location = new System.Drawing.Point(224, 3);
             this.adminBtn.Name = "adminBtn";
@@ -91,7 +91,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Opening";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Seçim Ekranı";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Opening_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -272,7 +272,7 @@
             this.Controls.Add(this.txtId);
             this.Name = "userList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kullanıcı Giriş";
+            this.Text = "Kullanıcı İşlemleri";
             this.Load += new System.EventHandler(this.UserPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridUser)).EndInit();
