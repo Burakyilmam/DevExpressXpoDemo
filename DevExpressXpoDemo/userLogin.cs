@@ -48,8 +48,13 @@ namespace DevExpressXpoDemo
                     main.Show();
                     this.Hide();
                 }
+                else
+                {
+                    MessageBox.Show("Kullanıcı adı veya parola hatalı","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex) { 
+            catch (Exception ex) {
+                MessageBox.Show("Hata : "+ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
