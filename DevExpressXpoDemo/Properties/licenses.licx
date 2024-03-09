@@ -1,4 +1,9 @@
-DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
-DevExpress.XtraBars.Ribbon.RibbonControl, DevExpress.XtraBars.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
-DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
 DevExpress.XtraTabbedMdi.XtraTabbedMdiManager, DevExpress.XtraBars.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraPrinting.Preview.DocumentViewer, DevExpress.XtraPrinting.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraRichEdit.RichEditControl, DevExpress.XtraRichEdit.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraEditors.Repository.RepositoryItemProgressBar, DevExpress.XtraEditors.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraBars.Ribbon.RibbonControl, DevExpress.XtraBars.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraPdfViewer.PdfViewer, DevExpress.XtraPdfViewer.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraSpreadsheet.SpreadsheetControl, DevExpress.XtraSpreadsheet.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v23.2, Version=23.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a

@@ -116,6 +116,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnEyeClose);
             this.Name = "adminLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yönetici Giriş";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.adminLogin_FormClosing);
             this.Load += new System.EventHandler(this.adminLogin_Load);
