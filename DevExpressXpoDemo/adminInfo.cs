@@ -19,9 +19,10 @@ namespace DevExpressXpoDemo
         public string AdminName;
         public string Password;
         public adminPage adminPage { get; set; }
-        public adminInfo()
+        public adminInfo(adminPage adminPage)
         {
             InitializeComponent();
+            this.adminPage = adminPage;
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace DevExpressXpoDemo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hata : "+ex.Message);
+                MessageBox.Show("Hata : " + ex.Message);
             }
         }
         private void adminInfo_Load(object sender, EventArgs e)
@@ -52,8 +53,10 @@ namespace DevExpressXpoDemo
             var changed = Uow.GetObjectByKey<Admin>(id);
             changed.Password = txtPassword.Text;
             changed.Adminname = txtAdminname.Text;
+            adminPage.AdminName = AdminName;
+            adminPage.Password = txtPassword.Text;
             Uow.CommitChanges();
-            MessageBox.Show("Yönetici bilgileri başarıyla güncellendi.","Başarılı",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Yönetici bilgileri başarıyla güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

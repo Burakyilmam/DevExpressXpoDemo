@@ -29,7 +29,7 @@ namespace DevExpressXpoDemo
 
         private void AdminInfo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            adminInfo adminInfo = new adminInfo();
+            adminInfo adminInfo = new adminInfo(this);
             adminInfo.Id = Id;
             adminInfo.AdminName = AdminName;
             adminInfo.Password = Password;
@@ -38,7 +38,9 @@ namespace DevExpressXpoDemo
 
         private void ChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            adminChangePassword adminChangePassword = new adminChangePassword();
+            adminChangePassword adminChangePassword = new adminChangePassword(this);
+            adminChangePassword.Password = Password;
+            adminChangePassword.Id = Id;
             adminChangePassword.Show();
         }
 
