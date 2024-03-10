@@ -32,8 +32,8 @@ namespace DevExpressXpoDemo
         }
         public void GetAll()
         {
-            var userlist = Uow.Query<User>().ToList();
-            gridUser.DataSource = userlist;
+            var adminlist = Uow.Query<Admin>().ToList();
+            gridUser.DataSource = adminlist;
         }
     }
 }
