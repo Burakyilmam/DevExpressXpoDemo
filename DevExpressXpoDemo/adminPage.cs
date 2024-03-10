@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -78,6 +79,16 @@ namespace DevExpressXpoDemo
             adminDocument.Dock = DockStyle.Fill;
             this.WindowState = FormWindowState.Maximized;
             adminDocument.Show();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Process.Start("Calc.exe");
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Process.Start("Mailto:");
         }
     }
 }
