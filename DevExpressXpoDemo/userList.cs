@@ -56,25 +56,44 @@ namespace DevExpressXpoDemo
                 Id = Convert.ToInt32(txtId.EditValue);
             }
         }
-        public void DeleteUser(int Id)
+        public void DeleteUser()
         {
+            try
+            {
+                int[] selectedRows = gridView1.GetSelectedRows();
+                gridView1.BeginUpdate();
+                foreach(int rowhHandle in selectedRows)
+                {
+                    if(rowhHandle >= 0)
+                    {
+                        int id = (int)gridView1.GetRowCellValue(rowhHandle, colId);
+                        var deleted = uow.GetObjectByKey<User>(id);
+                        uow.Delete(deleted);
+                    }
+                }
                 gridUser.DataSource = null;
-                var deleted = uow.GetObjectByKey<User>(Id);
-                uow.Delete(deleted);
+                gridUser.EndUpdate();
                 uow.CommitChanges();
-                MessageBox.Show("Kullanıcı başarıyla silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Kullanıcı silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Silinecek kullanıcı bulunmamaktadır", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void userDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
-                DialogResult dialogResult = new DialogResult();
-                dialogResult = MessageBox.Show("Kullanıcıyı silmek istediğinize emin misiniz ?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
+                if(gridView1.RowCount >= 1)
                 {
-                    var id = Convert.ToInt32(txtId.Text);
-                    DeleteUser(id);
-                    GetAll();
+                    DialogResult dialogResult = new DialogResult();
+                    dialogResult = MessageBox.Show("Kullanıcıyı silmek istediğinize emin misiniz ?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DeleteUser();
+                        GetAll();
+                    }
                 }
             }
             catch (Exception ex)
