@@ -19,7 +19,9 @@ namespace DevExpressXpoDemo.Xdb
     {
         static Type[] persistentTypes = new Type[] {
             typeof(User),
-            typeof(Admin)
+            typeof(Admin),
+            typeof(Oturumlar),
+            typeof(Student)
         };
         public static Type[] GetPersistentTypes()
         {

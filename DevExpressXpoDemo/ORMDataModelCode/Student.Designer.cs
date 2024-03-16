@@ -16,7 +16,7 @@ using System.Reflection;
 namespace DevExpressXpoDemo.Xdb
 {
 
-    public partial class Admin : XPLiteObject
+    public partial class Student : XPLiteObject
     {
         int fId;
         [Key(true)]
@@ -25,23 +25,35 @@ namespace DevExpressXpoDemo.Xdb
             get { return fId; }
             set { SetPropertyValue<int>(nameof(Id), ref fId, value); }
         }
-        string fAdminName;
-        public string AdminName
+        string fName;
+        public string Name
         {
-            get { return fAdminName; }
-            set { SetPropertyValue<string>(nameof(AdminName), ref fAdminName, value); }
+            get { return fName; }
+            set { SetPropertyValue<string>(nameof(Name), ref fName, value); }
         }
-        string fPassword;
-        public string Password
+        string fSurname;
+        public string Surname
         {
-            get { return fPassword; }
-            set { SetPropertyValue<string>(nameof(Password), ref fPassword, value); }
+            get { return fSurname; }
+            set { SetPropertyValue<string>(nameof(Surname), ref fSurname, value); }
+        }
+        DateTime fBirthDate;
+        public DateTime BirthDate
+        {
+            get { return fBirthDate; }
+            set { SetPropertyValue<DateTime>(nameof(BirthDate), ref fBirthDate, value); }
         }
         bool fStatus;
         public bool Status
         {
             get { return fStatus; }
             set { SetPropertyValue<bool>(nameof(Status), ref fStatus, value); }
+        }
+        int fStudentNo;
+        public int StudentNo
+        {
+            get { return fStudentNo; }
+            set { SetPropertyValue<int>(nameof(StudentNo), ref fStudentNo, value); }
         }
     }
 
