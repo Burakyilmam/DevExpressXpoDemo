@@ -149,6 +149,14 @@
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="ORMDataModelCode\ConnectionHelper.cs" />
+    <Compile Include="ORMDataModelCode\Oturumlar.cs" />
+    <Compile Include="ORMDataModelCode\Oturumlar.Designer.cs">
+      <DependentUpon>Oturumlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORMDataModelCode\Student.cs" />
+    <Compile Include="ORMDataModelCode\Student.Designer.cs">
+      <DependentUpon>Student.cs</DependentUpon>
+    </Compile>
     <Compile Include="ORMDataModelCode\User.cs" />
     <Compile Include="ORMDataModelCode\User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
@@ -173,6 +181,7 @@
     <Compile Include="frmUserAdd.Designer.cs">
       <DependentUpon>frmUserAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sabitler.cs" />
     <Compile Include="userLogin.cs">
       <SubType>Form</SubType>
     </Compile>

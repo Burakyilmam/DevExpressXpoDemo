@@ -14,7 +14,6 @@ namespace DevExpressXpoDemo
 {
     public partial class adminLogin : Form
     {
-        public UnitOfWork uow { get; set; }
         public adminLogin()
         {
             InitializeComponent();
@@ -29,13 +28,7 @@ namespace DevExpressXpoDemo
 
         private void adminLogin_Load(object sender, EventArgs e)
         {
-            Connection();
             txtPassword.Properties.UseSystemPasswordChar = true;
-        }
-        public void Connection()
-        {
-            Xdb.ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaOnly);
-            uow = new UnitOfWork(XpoDefault.DataLayer);
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -43,13 +36,15 @@ namespace DevExpressXpoDemo
             {
                 string adminname = txtUsername.Text;
                 string password = txtPassword.Text;
-                var login = uow.Query<Admin>().FirstOrDefault(x => x.Adminname == adminname && x.Password == password);
+                var login = Sabitler.uow.Query<Admin>().FirstOrDefault(x => x.AdminName == adminname && x.Password == password && x.Status == true);
                 if (login != null)
                 {
                     adminPage adminPage = new adminPage();
-                    adminPage.AdminName = adminname;
-                    adminPage.Password = password;
-                    adminPage.Id = login.Id;
+                    Sabitler.adminName = adminname;
+                    Sabitler.adminPassword = password;
+                    Sabitler.adminId = login.Id;
+                    Sabitler.IsAdmin = true;
+                    Sabitler.SessionAdmin();
                     adminPage.Show();
                     this.Hide();
                 }

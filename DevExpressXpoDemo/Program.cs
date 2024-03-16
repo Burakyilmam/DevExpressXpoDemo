@@ -16,9 +16,10 @@ namespace DevExpressXpoDemo
         [STAThread]
         static void Main()
         {
+            Xdb.ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaOnly);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Opening());
+            Application.Run(new Main());
         }
     }
 }

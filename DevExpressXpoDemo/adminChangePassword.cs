@@ -14,37 +14,27 @@ namespace DevExpressXpoDemo
 {
     public partial class adminChangePassword : Form
     {
-        public UnitOfWork Uow { get; set; }
-        public int Id { get; set; }
-        public string Password { get; set; }
-        public adminPage adminPage { get; set; }
-        public adminChangePassword(adminPage adminPage)
+        public adminChangePassword()
         {
             InitializeComponent();
-            this.adminPage = adminPage;
         }
 
         private void adminChangePassword_Load(object sender, EventArgs e)
         {
-            Connection();
-        }
-        public void Connection()
-        {
-            Xdb.ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaOnly);
-            Uow = new UnitOfWork(XpoDefault.DataLayer);
+
         }
         public void ChangePassword()
         {
-            var changed = Uow.GetObjectByKey<Admin>(Id);
+            var changed = Sabitler.uow.GetObjectByKey<Admin>(Sabitler.adminId);
             changed.Password = txtNew.Text;
-            adminPage.Password = changed.Password;
-            Uow.CommitChanges();
+            Sabitler.adminPassword = changed.Password;
+            Sabitler.uow.CommitChanges();
             MessageBox.Show("Parola başarıyla güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Hide();
         }
         private void btnChange_Click(object sender, EventArgs e)
         {
-            if (txtOld.Text == Password)
+            if (txtOld.Text == Sabitler.adminPassword)
             {
                 if (txtOld.Text == txtNew.Text)
                 {

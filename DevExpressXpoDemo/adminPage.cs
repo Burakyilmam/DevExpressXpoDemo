@@ -13,9 +13,6 @@ namespace DevExpressXpoDemo
 {
     public partial class adminPage : Form
     {
-        public int Id { get; set; }
-        public string AdminName { get; set; }
-        public string Password { get; set; }
         public adminPage()
         {
             InitializeComponent();
@@ -30,18 +27,13 @@ namespace DevExpressXpoDemo
 
         private void AdminInfo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            adminInfo adminInfo = new adminInfo(this);
-            adminInfo.Id = Id;
-            adminInfo.AdminName = AdminName;
-            adminInfo.Password = Password;
+            adminInfo adminInfo = new adminInfo();
             adminInfo.Show();
         }
 
         private void ChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            adminChangePassword adminChangePassword = new adminChangePassword(this);
-            adminChangePassword.Password = Password;
-            adminChangePassword.Id = Id;
+            adminChangePassword adminChangePassword = new adminChangePassword();
             adminChangePassword.Show();
         }
 
