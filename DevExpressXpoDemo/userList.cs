@@ -17,7 +17,6 @@ namespace DevExpressXpoDemo
         public string Username { get; set; }
         public string Password { get; set; }
         public int Id { get; set; }
-        public UnitOfWork uow { get; set; }
         public userList()
         {
             InitializeComponent();
@@ -25,22 +24,26 @@ namespace DevExpressXpoDemo
 
         private void UserPage_Load(object sender, EventArgs e)
         {
-            Connection();
             GetAll();
-        }
-        public void Connection()
-        {
-            Xdb.ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaOnly);
-            uow = new UnitOfWork(XpoDefault.DataLayer);
         }
         public void GetAll()
         {
-            var users = uow.Query<User>().ToList();
+            var users = Sabitler.uow.Query<User>().ToList();
             gridUser.DataSource = users;
         }
         private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
-
+            if(e.RowHandle >= 0)
+            {
+                if (gridView1.IsRowSelected(e.RowHandle))
+                {
+                    e.Appearance.ForeColor = Color.OrangeRed;
+                    e.Appearance.BackColor = Color.Black;
+                    FontStyle fs = e.Appearance.Font.Style;
+                    fs = FontStyle.Bold;
+                    e.Appearance.Font = new Font(e.Appearance.Font, fs);
+                }
+            }
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -62,23 +65,20 @@ namespace DevExpressXpoDemo
             {
                 int[] selectedRows = gridView1.GetSelectedRows();
                 gridView1.BeginUpdate();
-                foreach(int rowhHandle in selectedRows)
+                foreach (int row in selectedRows)
                 {
-                    if(rowhHandle >= 0)
-                    {
-                        int id = (int)gridView1.GetRowCellValue(rowhHandle, colId);
-                        var deleted = uow.GetObjectByKey<User>(id);
-                        uow.Delete(deleted);
-                    }
+                    int id = (int)gridView1.GetRowCellValue(row, colId);
+                    var deleted = Sabitler.uow.GetLoadedObjectByKey<User>(id);
+                    Sabitler.uow.Delete(deleted);
                 }
                 gridUser.DataSource = null;
-                gridUser.EndUpdate();
-                uow.CommitChanges();
+                gridView1.EndUpdate();
+                Sabitler.uow.CommitChanges();
                 MessageBox.Show("Kullanıcı silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Silinecek kullanıcı bulunmamaktadır", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void userDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -98,15 +98,15 @@ namespace DevExpressXpoDemo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Silinecek kullanıcı bulunmamaktadır", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }      
         }
         public void DeleteAllUser()
         {
             gridUser.DataSource = null;
-            var deleted = uow.Query<User>().ToList();
-            uow.Delete(deleted);
-            uow.CommitChanges();
+            var deleted = Sabitler.uow.Query<User>().ToList();
+            Sabitler.uow.Delete(deleted);
+            Sabitler.uow.CommitChanges();
             MessageBox.Show("Kullanıcı hepsi başarıyla silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -124,7 +124,7 @@ namespace DevExpressXpoDemo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Silinecek kullanıcı bulunmamaktadır", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

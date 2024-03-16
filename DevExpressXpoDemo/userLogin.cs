@@ -14,14 +14,12 @@ namespace DevExpressXpoDemo
 {
     public partial class userLogin : Form
     {
-        public UnitOfWork uow { get; set; }
         public userLogin()
         {
             InitializeComponent();
         }
         private void userLogin_Load(object sender, EventArgs e)
         {
-            Connection();
             txtPassword.Properties.UseSystemPasswordChar = true;
         }
         private void userLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -30,21 +28,21 @@ namespace DevExpressXpoDemo
             opening.Show();
             this.Hide();
         }
-        public void Connection()
-        {
-            Xdb.ConnectionHelper.Connect(DevExpress.Xpo.DB.AutoCreateOption.SchemaOnly);
-            uow = new UnitOfWork(XpoDefault.DataLayer);
-        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
                 string username = txtUsername.Text;
                 string password = txtPassword.Text;
-                var login = uow.Query<User>().FirstOrDefault(x => x.Username == username && x.Password == password);
+                var login = Sabitler.uow.Query<User>().FirstOrDefault(x => x.Username == username && x.Password == password && x.Status == true);
                 if (login != null)
                 {
                     Main main = new Main();
+                    Sabitler.userName = username;
+                    Sabitler.userPassword = password;
+                    Sabitler.userId = login.Id;
+                    Sabitler.IsAdmin = false;
+                    Sabitler.SessionUser();
                     main.Show();
                     this.Hide();
                 }

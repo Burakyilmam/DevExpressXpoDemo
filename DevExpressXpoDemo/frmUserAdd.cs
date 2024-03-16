@@ -27,14 +27,13 @@ namespace DevExpressXpoDemo
         private void frmUserAdd_Load(object sender, EventArgs e)
         {
             txtPassword.Properties.UseSystemPasswordChar = true;
-            userList.Connection();
         }
         public void Add()
         {
-            User user = new User(userList.uow);
+            User user = new User(Sabitler.uow);
             user.Password = txtPassword.Text;
             user.Username = txtUsername.Text;
-            userList.uow.CommitChanges();
+            Sabitler.uow.CommitChanges();
             MessageBox.Show("Kullanıcı başarıyla eklendi","Başarılı",MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Hide();
         }

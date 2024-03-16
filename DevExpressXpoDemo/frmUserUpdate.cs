@@ -25,7 +25,6 @@ namespace DevExpressXpoDemo
 
         private void frmUserUpdate_Load(object sender, EventArgs e)
         {
-            userList.Connection();
             txtPassword.Properties.UseSystemPasswordChar = true;
             txtUsername.Text = Username;
             txtPassword.Text = Password;
@@ -41,10 +40,10 @@ namespace DevExpressXpoDemo
 
         public void Update(int Id)
         {
-            var updated = userList.uow.GetObjectByKey<User>(Id);
+            var updated = Sabitler.uow.GetObjectByKey<User>(Id);
             updated.Username = txtUsername.Text;
             updated.Password = txtPassword.Text;
-            userList.uow.CommitChanges();
+            Sabitler.uow.CommitChanges();
             MessageBox.Show("Kullanıcı başarıyla güncellendi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Hide();
 
